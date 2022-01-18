@@ -39,9 +39,9 @@
 }
 .row{
     width: 1400px;
-    height: 650px;
-    
+    height: 850px;
 }
+/* .row2{} */
 .col-content-title{
     font-size: 42px;
     line-height: 52px;
@@ -103,7 +103,6 @@
     text-align: center;
     
 }
-
 .login{
     width: 370px;
     height: 420px;
@@ -111,6 +110,7 @@
     margin: auto;
     border: 1px solid grey;
     border-radius: 10px;
+    
 }
 .btn_login{
     align-items: center;
@@ -119,4 +119,11 @@
 }
 .btn.btn-primary.btn-block{
     padding: 5px 15px;
+}
+summary{
+    padding: 24px 0;
+    font-size: 18px;
+}
+details{
+    border-bottom: 1px solid grey;
 }

