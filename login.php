@@ -23,11 +23,15 @@
       <!-- <label for="exampleFormControlInput1" class="form-label">Email hoặc số điện thoại</label> -->
       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email hoặc số điện thoại" name="username">
     </div>
+    <div class="mb-3">
+      <!-- <label for="exampleFormControlInput1" class="form-label">Email hoặc số điện thoại</label> -->
+      <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Mật khẩu" name="password">
+    </div>
     <a href="https://accounts.google.com/signin/v2/usernamerecovery?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin" style="font-size: 15px; color: #1a73e8; margin-top:0px;text-decoration: none"><b>Bạn quên địa chỉ email?</b></a>
     <div style="font-size: 13px;">Đây không phải máy tính của bạn? Hãy sử dụng chế độ Khách để đăng nhập một cách riêng tư. <a href="https://support.google.com/chrome/answer/6130773?hl=vi">Tìm hiểu thêm</a></div>
     
     <div class="btn_login">
-      <a href="singup.php">Tạo tài khoản</a>
+      <a href="signup.php">Tạo tài khoản</a>
       <button type="submit" class="btn btn-primary btn-block" style="margin-left: 0px;" name="btn_submit">Tiếp theo</button>
     </div>
   </div>
@@ -46,7 +50,7 @@
         echo " <script type=\"text/javascript\">alert('Lỗi khi kết nối tới cơ sở dữ liệu'); </script>";
         die();
      }
-      $sql = "SELECT username, password FROM tblogin";
+      $sql = "SELECT username, password FROM tb_account";
       $result = $conn->query($sql); 
 
       if ($result->num_rows > 0) 
@@ -54,7 +58,7 @@
         // Load dữ liệu lên website
         while($row = $result->fetch_assoc()) {
         $username = $row["username"];
-        $password = $row["password"];}
+        $password = $row["pass"];}
         // echo "username: " . $row["username"]. " password: " . $row["password"]. " 
       }
       if($_POST['username']==$username and $_POST['password']==$password)
@@ -65,7 +69,7 @@
           // echo "<script type=\"text/javascript\" language=\"Javascript\">window.open('$str_URL$create_product');</script>";
       }
       else  
-        echo " <script type=\"text/javascript\">alert('username or password incorrect'); </script>";
+        echo " <script type=\"text/javascript\">alert('email or password incorrect'); </script>";
         
       mysqli_close($conn);
     }

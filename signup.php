@@ -1,101 +1,91 @@
-<html>
-	<head>
-		<title>Form đăng ký thành viên</title>
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
-<style>
-body{
-background: url(http://mymaplist.com/img/parallax/back.png);
-background-color: #444;
-background: url(http://mymaplist.com/img/parallax/pinlayer2.png),url(http://mymaplist.com/img/parallax/pinlayer1.png),url(http://mymaplist.com/img/parallax/back.png);    
-}
-.vertical-offset-100{
-    padding-top:100px;
-}
-.login{
-	
-	text-align:center;
-}
-</style>
-	</head>
-	<body>
-		<?php
-		  require "ketnoi.php";
-		if (isset($_POST["btn_submit"])) {
-  			//lấy thông tin từ các form bằng phương thức POST
-  			$username = $_POST["username"];
-  			$password = $_POST["pass"];
- 			$name = $_POST["name"];
-  			$email = $_POST["email"];
-  			//Kiểm tra điều kiện bắt buộc đối với các field không được bỏ trống
-			  if ($username == "" || $password == "" || $name == "" || $email == "") {
-                $message = "bạn vui lòng nhập đầy đủ thông tin";
-				   echo "<script type='text/javascript'>alert('$message');</script>";
-  			}else{
-  					// Kiểm tra tài khoản đã tồn tại chưa
-  					$sql="select * from datadangky where username='$username'";
-					$kt=mysqli_query($conn, $sql);
+<!DOCTYPE html>
+<html lang="en">
 
-					if(mysqli_num_rows($kt)  > 0){
-						echo "Tài khoản đã tồn tại";
-					}else{
-						//thực hiện việc lưu trữ dữ liệu vào db
-	    				$sql = "INSERT INTO datadangky(
-	    					username,
-	    					password,
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Tạo tài khoản Google</title>
+</head>
+
+<body>
+    <?php
+
+    require "connect.php";
+    if (isset($_POST["btn_submit"])) {
+        //lấy thông tin từ các form bằng phương thức POST
+        $name = $_POST["name"];
+        $password = $_POST["password"];
+        $rePassword = $_POST["rePassword"];
+        $email = $_POST["email"];
+        //Kiểm tra điều kiện bắt buộc đối với các field không được bỏ trống
+        if ($name == "" || $password == "" || $rePassword == "" || $name == "" || $email == "") {
+            $message = "Bạn vui lòng nhập đầy đủ thông tin";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }
+         else if ($password !== $rePassword) {
+            $message = "Mật khẩu bạn nhập không khớp!";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+         } 
+        else {
+            // Kiểm tra tài khoản đã tồn tại chưa
+            $sql = "select * from tb_account where email='$email'";
+            $kt = mysqli_query($conn, $sql);
+
+            $nRow = $kt->num_rows;
+if ( $kt === TRUE and $nRow > 0) {
+                $message = "Tài khoản đã tồn tài!";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+            } else {
+                //thực hiện việc lưu trữ dữ liệu vào db
+                $sql = "INSERT INTO tb_account(
 	    					name,
+	    					password,
 						    email
 	    					) VALUES (
-	    					'$username',
+	    					'$name',
 	    					'$password',
-						    '$name',
-	    					'$email'
+                            '$email'
 	    					)";
-   						mysqli_query($conn,$sql);
-                           $message = "Chúc mừng bạn đã đăng ký thành công!";
-				   		echo "<script type='text/javascript'>alert('$message');</script>";
-						   header('Location: login.php');
-					}
-									    
-					
-			  }
-	}
-	?>
-<div class="container">
-    <div class="row vertical-offset-100">
-    	<div class="col-md-4 col-md-offset-4">
-    		<div class="panel panel-default">
-			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Please Sign Up</h3>
-			 	</div>
-			  	<div class="panel-body">
-			    	<form method="POST" >
-                    <fieldset>
-			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="username" name="username" type="text">
-			    		</div>
-			    		<div class="form-group">
-			    			<input class="form-control" placeholder="password" name="pass" type="password" value="">
-			    		</div>
-						<div class="form-group">
-			    		    <input class="form-control" placeholder="họ tên" name="name" type="text">
-			    		</div>
-						<div class="form-group">
-			    		    <input class="form-control" placeholder="email" name="email" type="text">
-			    		</div>
-						<div class="login">
-						<a href="login.php">Đăng nhập?</a>
-						</div>
-						</br>
-			    		<input class="btn btn-lg btn-success btn-block" type="submit" name="btn_submit" value="Sign Up">
-			    	</fieldset>
-			      	</form>
-			    </div>
-			</div>
-		</div>
-	</div>
-</div>
-	</body>
-	</html>
+                mysqli_query($conn, $sql);
+                $message = "Chúc mừng bạn đã đăng ký thành công!";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                header('Location: login.php');
+            }
+        }
+    }
+
+    ?>
+    <form method="post">
+        <div class="con">
+            <div class="signup">
+                <div class="logo_signup">
+                    <img src="image/google_login.jpg" style="width: 75px; height: 24px;" alt="">
+                </div>
+                <div style="margin-top: 20px;">
+                    <p style="font-size: 24px;text-align : center;">Tạo tài khoản Google</p>
+                </div>
+                <div class="mb-3">
+                    <!-- <label for="exampleFormControlInput1" class="form-label">Email hoặc số điện thoại</label> -->
+                    <input type="name" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Họ và tên" name="name">
+                    <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Email hoặc số điện thoại" name="email">
+                    <input type="password" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Mật khẩu" name="password">
+                    <input type="password" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Xác nhận mật khẩu" name="rePassword">
+                </div>
+                <div class="btn_signup">
+                    <a href="login.php">Đăng nhập</a>
+                    <button type="submit" class="btn btn-primary btn-block" style="margin-left: 0px;" name="btn_submit">Đăng ký</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>

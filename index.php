@@ -21,7 +21,7 @@
 			<div class="navbar-brand">
 				<a class="btn btn-cv" style="text-decoration: none; color: #0d6efd;" href="#">Dành cho công việc</a>
 				<a class="btn btn-login" href="login.html" role="button">Đăng nhập</a>
-				<a class="btn btn-primary" href="singup.html" role="button">Tạo tài khoản</a>
+				<a class="btn btn-primary" href="signup.php" role="button">Tạo tài khoản</a>
 			</div>
 		</div>
 

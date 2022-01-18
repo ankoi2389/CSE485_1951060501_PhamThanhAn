@@ -6,6 +6,7 @@
     top: 0;
     width: 100%;
 }
+
 .header__container {
     margin: 0 150px;
     display: flex;
@@ -15,50 +16,63 @@
     justify-content: space-between;
     padding: 0 72px;
 }
-.mobile-before-hero-only{
+
+.mobile-before-hero-only {
     color: #5f6368;
     font-size: 22px;
 }
-.btn.btn-login{
-    padding:12px 24px;
+
+.btn.btn-login {
+    padding: 12px 24px;
     background: #fff;
     color: #0d6efd;
     border: 1px solid transparent;
 }
-.btn.btn-primary{
+
+.btn.btn-primary {
     padding: 12px 24px;
 }
-.main{
+
+.main {
     margin-top: 80px;
 }
-.col-title{
+
+.col-title {
     font-size: 64px;
     line-height: 74px;
     font-weight: 500;
     margin-bottom: 36px;
 }
-.row{
+
+.row {
     width: 1400px;
     height: 850px;
 }
+
+
 /* .row2{} */
-.col-content-title{
+
+.col-content-title {
     font-size: 42px;
     line-height: 52px;
     font-weight: 500;
     margin-bottom: 50px;
 }
-.col-chapter-title{
+
+.col-chapter-title {
     font-size: 22px;
     line-height: 28px;
     font-weight: 500;
     margin-bottom: 8px;
     width: 492px;
 }
-.col-chapter-subtitle{
+
+.col-chapter-subtitle {
     font-size: 16px;
     margin-bottom: 40px;
 }
+
+
 /* .feature__chapter__title {
     color: #202124;
     font-family: "Google Sans", "Roboto", Arial, sans-serif;
@@ -67,6 +81,8 @@
     color: #202124;
     font-size: 64px;
 } */
+
+
 /* .feature__container {
     direction: rtl;
     
@@ -76,54 +92,73 @@
     grid-row-gap: 30px
 } */
 
-.btn1{
+.btn1 {
     width: 100px;
     height: 100px;
 }
-.row-content{
+
+.row-content {
     width: 492px;
     height: 222px;
     flex-wrap: nowrap;
     display: flex;
 }
-.align-self-start{
+
+.align-self-start {
     width: 164px;
 }
-.tab{
+
+.tab {
     width: 154px;
-    
-    
 }
 
-
-
-
-
-.logo_login{
+.logo_login {
     text-align: center;
-    
 }
-.login{
+
+.login {
     width: 370px;
     height: 420px;
     padding: 48px 40px 36px;
     margin: auto;
     border: 1px solid grey;
     border-radius: 10px;
-    
 }
-.btn_login{
+
+.btn_login {
     align-items: center;
     display: flex;
     justify-content: space-between;
 }
-.btn.btn-primary.btn-block{
+
+.btn.btn-primary.btn-block {
     padding: 5px 15px;
 }
-summary{
+
+summary {
     padding: 24px 0;
     font-size: 18px;
 }
-details{
+
+details {
     border-bottom: 1px solid grey;
+}
+
+.logo_signup {
+    text-align: center;
+}
+
+.signup {
+    width: 400px;
+    height: 470px;
+    padding: 48px 40px 36px;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.btn_signup {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
